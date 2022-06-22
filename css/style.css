@@ -2,8 +2,7 @@
 :root{
     --bg-black-900: #111;
     --bg-black-100: #1a1a1a;
-    --bg-black-50: #393939;
-    --bg-black-51: #333;
+    --bg-black-50: #333;
     --text-black-900: #ffffff;
     --text-black-700: #e9e9e9;
     --text-black-100: #f2f2fc;
@@ -11,8 +10,7 @@
 body.dark{
     --bg-black-900: #f2f2fc;
     --bg-black-100: #fdf9ff;
-    --bg-black-50: #e8dfec;
-    --bg-black-51: #333;
+    --bg-black-50: #93da0f;
     --text-black-900: #302e4d;
     --text-black-700: #504e70;
     --text-black-100: #f2f2fc;
@@ -62,7 +60,7 @@ section{
 
 .btn{
     padding:.7rem 3rem;
-    background:#333;
+    background:var(--bg-black-50);
     color:#fff;
     cursor: pointer;
     margin-top: 1rem;
@@ -139,7 +137,7 @@ header .navbar ul li a{
     display: block;
     padding:1rem;
     margin:1.5rem 0;
-    background:var(--bg-black-51);
+    background:var(--bg-black-50);
     color: var(--text-black-100);
     font-size: 2rem;
     border-radius: 5rem;
@@ -150,9 +148,11 @@ header .navbar ul li a:hover{
 }
 
 #menu{
+    
     position: fixed;
     top:2rem; right:2rem;
-    background: var(--bg-black-50);
+    background:#333;
+    color:#fff;
     cursor: pointer;
     font-size: 2.5rem;
     padding:1rem 1.5rem;
@@ -171,7 +171,9 @@ header .navbar ul li a:hover{
     font-size: 2.5rem;
     color: var(--text-black-900);
 }
-
+.home h3 span{
+    color:var(--skin-color);
+}
 .home h1{
     font-size:5rem;
     color:var(--text-black-700);
@@ -257,7 +259,7 @@ header .navbar ul li a:hover{
 
 .education .box-container .box span{
     font-size: 1.3rem;
-    background:#222;
+    background:var(--bg-black-50);
     color:#fff;
     border-radius: 5rem;
     padding:.5rem 2.5rem;
