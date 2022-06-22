@@ -3,13 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>responsive personal portfolio website design tutorail</title>
+    <title>Majidi Salimu Mussa</title>
 
     <!-- font awesome cdn link  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 
     <!-- custom css file link  -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/skin/color-1.css">
+    <link rel="stylesheet" href="css/style-switcher.css">
+    <link rel="stylesheet" href="css/skin/color-1.css" class="alternative-style" title="color-1" disabled>
+    <link rel="stylesheet" href="css/skin/color-2.css" class="alternative-style" title="color-2" disabled>
+    <link rel="stylesheet" href="css/skin/color-3.css" class="alternative-style" title="color-3" disabled>
+    <link rel="stylesheet" href="css/skin/color-4.css" class="alternative-style" title="color-4" disabled>
+    <link rel="stylesheet" href="css/skin/color-5.css" class="alternative-style" title="color-5" disabled>
 
 </head>
 <body>
@@ -74,8 +81,8 @@
         <h3> <span> language : </span> Swahili </h3>
         <a href="#"><button class="btn"> download CV <i class="fas fa-download"></i> </button></a>
     </div>
-
-    <div class="counter">
+<!--
+   /* <div class="counter">
 
         <div class="box">
             <span>2+</span>
@@ -97,7 +104,8 @@
             <h3>awards won</h3>
         </div>
 
-    </div>
+    </div> 
+-->
 
 </div>
 
@@ -265,7 +273,45 @@
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
-
-
+<!-- style switcher start -->
+<div class="style-switcher">
+    <div class="style-switcher-toggler s-icon">
+        <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <div class="day-night s-icon">
+        <i class="fas "></i>
+    </div>
+    <h4>Theme Colors</h4>
+    <div class="colors">
+        <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+        <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+        <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+        <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+        <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+    </div>
+</div>
+<!-- style switcher end -->
+<!-- custom js file link  -->
+<script src="js/script.js"></script>
+<!-- style switcher start -->
+<div class="color-switcher">
+    <div class="switcher-btn">
+        <i class="fas fa-cog fa-spin"></i>
+    </div>
+    <h3>Theme Colors</h3>
+    <div class="theme-buttons-container">
+        <span class="theme-buttons" data-color="#fff" style="background: rgb(206, 14, 14);"></span>
+        <span class="theme-buttons" data-color="#fff" style="background: rgb(145, 245, 14);"></span>
+        <span class="theme-buttons" data-color="#fff" style="background: rgb(91, 13, 194);"></span>
+        <span class="theme-buttons" data-color="#fff" style="background: rgb(11, 103, 224);"></span>
+    </div>
+</div>
+<!-- style switcher end -->
+<script src="js/style-switcher.js"></script>
+<script>
+    document.querySelector('.switcher-btn').onclick = () => {
+    document.querySelector('.color-switcher').classList.toggle('open');
+}
+</script>
 </body>
 </html>
