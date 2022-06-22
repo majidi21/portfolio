@@ -293,7 +293,46 @@
 <!-- style switcher end -->
 <!-- custom js file link  -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
-<script src="js/script.js"></script>
+<script>
+    $(document).ready(function(){
+
+$('#menu').click(function(){
+  $(this).toggleClass('fa-times');
+  $('header').toggleClass('toggle');
+});
+
+$(window).on('scroll load',function(){
+
+  $('#menu').removeClass('fa-times');
+  $('header').removeClass('toggle');
+
+  if($(window).scrollTop() > 0){
+    $('.top').show();
+  }else{
+    $('.top').hide();
+  }
+
+});
+
+// smooth scrolling 
+
+$('a[href*="#"]').on('click',function(e){
+
+  e.preventDefault();
+
+  $('html, body').animate({
+
+    scrollTop : $($(this).attr('href')).offset().top,
+
+  },
+    500, 
+    'linear'
+  );
+
+});
+
+});
+</script>
 <script src="js/style-switcher.js"></script>
 <script src="js/script.js"></script>
 </body>
