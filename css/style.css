@@ -152,7 +152,7 @@ header .navbar ul li a:hover{
 #menu{
     position: fixed;
     top:2rem; right:2rem;
-    background: var(--bg-black-900);
+    background: var(--bg-black-50);
     cursor: pointer;
     font-size: 2.5rem;
     padding:1rem 1.5rem;
