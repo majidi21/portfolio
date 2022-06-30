@@ -83,27 +83,22 @@
     </div>
 <!--
    /* <div class="counter">
-
         <div class="box">
             <span>2+</span>
             <h3>years of experience</h3>
         </div>
-
         <div class="box">
             <span>100+</span>
             <h3>porject completed</h3>
         </div>
-
         <div class="box">
             <span>430+</span>
             <h3>happy clients</h3>
         </div>
-
         <div class="box">
             <span>12+</span>
             <h3>awards won</h3>
         </div>
-
     </div> 
 -->
 
@@ -231,13 +226,14 @@
 
     </div>
 
-    <form action="">
+    <form id="myForm">
 
-        <input type="text" placeholder="name" class="box">
-        <input type="email" placeholder="email" class="box">
-        <input type="text" placeholder="project" class="box">
-        <textarea name="" id="" cols="30" rows="10" class="box message" placeholder="message"></textarea>
-        <button type="submit" class="btn"> send <i class="fas fa-paper-plane"></i> </button>
+    <h4 class="sent-notification" style=" font-size: 2rem;color:var(--text-black-900);"></h4>
+        <input type="text" id="name" placeholder="name" class="box">
+        <input type="email" id="email" placeholder="email" class="box">
+        <input type="text" id="subject" placeholder="Subject" class="box">
+        <textarea name="" id="body" cols="30" rows="10" class="box message" placeholder="message"></textarea>
+        <button type="button" class="btn" onclick="sendEmail()" value="Send An Email"> send <i class="fas fa-paper-plane"></i> </button>
 
     </form>
 
@@ -273,6 +269,7 @@
 
 <!-- custom js file link  -->
 <script src="js/script.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
 <!-- style switcher start -->
 <div class="style-switcher">
     <div class="style-switcher-toggler s-icon">
@@ -291,49 +288,45 @@
     </div>
 </div>
 <!-- style switcher end -->
-<!-- custom js file link  -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
-<script>
-    $(document).ready(function(){
-
-$('#menu').click(function(){
-  $(this).toggleClass('fa-times');
-  $('header').toggleClass('toggle');
-});
-
-$(window).on('scroll load',function(){
-
-  $('#menu').removeClass('fa-times');
-  $('header').removeClass('toggle');
-
-  if($(window).scrollTop() > 0){
-    $('.top').show();
-  }else{
-    $('.top').hide();
-  }
-
-});
-
-// smooth scrolling 
-
-$('a[href*="#"]').on('click',function(e){
-
-  e.preventDefault();
-
-  $('html, body').animate({
-
-    scrollTop : $($(this).attr('href')).offset().top,
-
-  },
-    500, 
-    'linear'
-  );
-
-});
-
-});
-</script>
 <script src="js/style-switcher.js"></script>
-<script src="js/script.js"></script>
+<script src="js/typing.js"></script>
+<!-- custom js file link  -->
+<!-- Contact Us Start  -->
+<script src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript">
+        function sendEmail() {
+            var name = $("#name");
+            var email = $("#email");
+            var subject = $("#subject");
+            var body = $("#body");
+
+            if (isNotEmpty(name) && isNotEmpty(email) && isNotEmpty(subject) && isNotEmpty(body)) {
+                $.ajax({
+                   url: 'sendEmail.php',
+                   method: 'POST',
+                   dataType: 'json',
+                   data: {
+                       name: name.val(),
+                       email: email.val(),
+                       subject: subject.val(),
+                       body: body.val()
+                   }, success: function (response) {
+                        $('#myForm')[0].reset();
+                        $('.sent-notification').text("Message Sent Successfully.");
+                   }
+                });
+            }
+        }
+
+        function isNotEmpty(caller) {
+            if (caller.val() == "") {
+                caller.css('border', '1px solid red');
+                return false;
+            } else
+                caller.css('border', '');
+
+            return true;
+        }
+    </script>
 </body>
 </html>
